@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User; 
 use Illuminate\Support\Facades\Auth; 
 use Validator;
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
  
 class UserController extends Controller
 {
