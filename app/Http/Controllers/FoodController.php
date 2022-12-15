@@ -51,8 +51,16 @@ class FoodController extends Controller
             'prep-time' => 'required',
             'cook-time' => 'required'
         ]);
+
+        if($request->hasFile('image')){
+            $name = time()."_".$request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('images'), $name);
+        }
  
-        $foods = Food::create($request->all());
+        $foods = Food::create([
+            $request->all(),
+            'image' => $request->hasFile('image')? asset("images/$name"): $request->image
+        ]);
         return [
             "status" => 1,
             "data" => $foods
