@@ -62,7 +62,7 @@ class FoodController extends Controller
             'image' => $request->hasFile('image')? asset("images/$name"): $request->image
         ]);
         return [
-            "status" => 2,
+            "status" => 1,
             "data" => $foods
         ];
     }
