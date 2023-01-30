@@ -56,7 +56,9 @@ class FoodController extends Controller
 
         if($request->hasFile('image')){
             $name = time()."_".$request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path('images'), $name);
+            $request->file('image')->move($name, 'public/images/' . $name);
+
+            
         }
  
         $foods = Food::create([
