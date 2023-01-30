@@ -15,7 +15,7 @@ class AddColumnsFoods extends Migration
     {
         //updating data type of columns
         Schema::table('foods', function (Blueprint $table) {
-            $table->text('image');
+            $table->text('image')->nullable()->change();
         });
 
     }
