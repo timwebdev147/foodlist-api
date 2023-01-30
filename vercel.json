@@ -27,10 +27,10 @@
         "SESSION_DRIVER": "cookie",
 
         "DB_CONNECTION": "mysql",
-        "DB_HOST": "remotemysql.com",
+        "DB_HOST": "sql.freedb.tech",
         "DB_PORT": "3306",
-        "DB_DATABASE": "AABaHZ3UYA",
-        "DB_USERNAME": "AABaHZ3UYA",
-        "DB_PASSWORD": "wHvBFqcXiW"
+        "DB_DATABASE": "freedb_Kitchen_manager",
+        "DB_USERNAME": "freedb_Kitchen_manager",
+        "DB_PASSWORD": "2x8e*EABNxzgEJd"
     }
 }
