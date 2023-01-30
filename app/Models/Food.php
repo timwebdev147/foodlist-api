@@ -16,6 +16,7 @@ class Food extends Model
         'cuisine',
         'dish-type',
         'p-ingredient',
+        'image',
         'ingredient',
         'instructions',
         'prep-time',
