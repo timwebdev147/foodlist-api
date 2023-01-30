@@ -40,6 +40,8 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
+
+        
         $request->validate([
             'food' => 'required',
             'description' => 'required',
@@ -58,7 +60,15 @@ class FoodController extends Controller
         }
  
         $foods = Food::create([
-            $request->all(),
+            'food' => $request->food,
+            'description' => $request->description,
+            'cuisine' => $request->cuisine,
+            'dish-type' => $request->get('dish-type'),
+            'p-ingredient' => $request->get('p-ingredient'),
+            'ingredient' => $request->ingredient,
+            'instructions' => $request->instructions,
+            'prep-time' => $request->get('prep-time'),
+            'cook-time' => $request->get('cook-time'),
             'image' => $request->hasFile('image')? asset("images/$name"): $request->image
         ]);
         return [
