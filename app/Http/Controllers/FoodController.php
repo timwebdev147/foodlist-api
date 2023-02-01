@@ -56,7 +56,7 @@ class FoodController extends Controller
 
         if($request->hasFile('image')){
             $name = time()."_".$request->file('image')->getClientOriginalName();
-            $request->file('image')->move($name, 'public/images/' . $name);
+            $request->file('image')->move($name, 'storage/app/public/' . $name);
 
             
         }
