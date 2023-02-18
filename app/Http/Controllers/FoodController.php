@@ -6,7 +6,6 @@ use App\Models\Food;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class FoodController extends Controller
 {
@@ -57,9 +56,9 @@ class FoodController extends Controller
         ]);
 
         if($request->hasFile('image')){
-           
+            $file = $request->file('image');
             $name = time()."_".$request->file('image')->getClientOriginalName();
-            $request->file('image')->move('images',  $name);
+            Storage::disk('public')->put('images/'.$name, file_get_contents($file));
 
             
         }
@@ -74,7 +73,7 @@ class FoodController extends Controller
             'instructions' => $request->instructions,
             'prep-time' => $request->get('prep-time'),
             'cook-time' => $request->get('cook-time'),
-            'image' => $request->hasFile('image')? asset("images/$name"): $request->image
+            'image' => $request->hasFile('image')? asset("storage/images/$name"): $request->image
         ]);
         return [
             "status" => 1,
