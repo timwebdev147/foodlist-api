@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Food;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class FoodController extends Controller
 {
@@ -55,8 +57,9 @@ class FoodController extends Controller
         ]);
 
         if($request->hasFile('image')){
+           
             $name = time()."_".$request->file('image')->getClientOriginalName();
-            $request->file('image')->move($name, 'storage/app/public/' . $name);
+            Storage::move($name, 'public/images/' . $name);
 
             
         }
