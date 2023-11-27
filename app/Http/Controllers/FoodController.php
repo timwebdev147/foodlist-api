@@ -49,7 +49,7 @@ class FoodController extends Controller
             'cuisine' => 'required',
             'dish-type' => 'required',
             'p-ingredient' => 'required',
-            'ingredient' => 'required',
+            'ingredient' => 'required|min:225',
             'instructions' => 'required',
             'prep-time' => 'required',
             'cook-time' => 'required'
